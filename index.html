@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="description" content="Mobile Banking Website" />
+        <meta name="keywords" content="HTML, SCSS, CSS, JS" />
+        <meta name="author" content="An Tran" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>CeloBank - Mobile Banking Website</title>
+
+        <!-- ***** EXTERNAL CSS ***** -->
+        <!-- +++++ Google Font CSS +++++ -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <!-- +++++ +++++++++++++++ +++++ -->
+        <!-- +++++ Main CSS +++++ -->
+        <link rel="stylesheet" href="./project/css/main.css" />
+        <!-- +++++ ++++++++++ +++++ -->
+        <!-- ************************ -->
+
+        <!-- ***** FAVICON ***** -->
+        <link
+            rel="apple-touch-icon"
+            sizes="57x57"
+            href="./project/favicon/apple-icon-57x57.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="60x60"
+            href="./project/favicon/apple-icon-60x60.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="72x72"
+            href="./project/favicon/apple-icon-72x72.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="76x76"
+            href="./project/favicon/apple-icon-76x76.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="114x114"
+            href="./project/favicon/apple-icon-114x114.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="120x120"
+            href="./project/favicon/apple-icon-120x120.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="144x144"
+            href="./project/favicon/apple-icon-144x144.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="152x152"
+            href="./project/favicon/apple-icon-152x152.png"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="./project/favicon/apple-icon-180x180.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="192x192"
+            href="./project/favicon/android-icon-192x192.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="./project/favicon/favicon-32x32.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="96x96"
+            href="./project/favicon/favicon-96x96.png"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="./project/favicon/favicon-16x16.png"
+        />
+        <link rel="manifest" href="./project/favicon/manifest.json" />
+        <meta name="msapplication-TileColor" content="#fff" />
+        <meta
+            name="msapplication-TileImage"
+            content="./project/favicon/ms-icon-144x144.png"
+        />
+        <meta name="theme-color" content="#fff" />
+        <!-- ******************* -->
+
+        <!-- ***** OPEN GRAPH ***** -->
+        <meta property="og:title" content="F8 CeloBank Project" />
+        <meta property="og:type" content="website" />
+        <meta
+            property="og:url"
+            content="https://antm95.github.io/f8-htmlcss-05/"
+        />
+        <meta
+            property="og:image"
+            content="https://repository-images.githubusercontent.com/676820530/99fa9935-af78-4b81-bd49-39a371a528b3"
+        />
+        <meta property="og:description" content="Github: antm95" />
+        <!-- ********************** -->
+    </head>
+    <body style="height: 6000px">
+        <!-- +++++ HEADER +++++ -->
+        <header class="header header--sticky">
+            <div class="container g-xl-0">
+                <div class="header__inner">
+                    <!-- Menu & CTA on Tablet & Mobile -->
+                    <div class="hidden header--mobile">
+                        <input
+                            type="checkbox"
+                            name=""
+                            id="drawer-checkbox"
+                            class="drawer-checkbox"
+                        />
+
+                        <!-- Menu Buttons -->
+                        <label for="drawer-checkbox" class="toggle-drawer">
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 448 512"
+                            >
+                                <path
+                                    fill="currentColor"
+                                    d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                                />
+                            </svg>
+                        </label>
+
+                        <!-- Drawer -->
+                        <div class="drawer">
+                            <!-- Logo on Mobile -->
+                            <!-- Logo -->
+                            <a class="logo logo--mobile" href="">
+                                <img
+                                    src="./project/svg/logo-celobank.svg"
+                                    alt="Logo CeloBank"
+                                    class="logo__icon"
+                                />
+                                <div class="logo__name" data-replace="CeloBank">
+                                    CeloBank
+                                </div>
+                            </a>
+
+                            <!-- Menu on Mobile -->
+                            <nav class="menu menu--mobile">
+                                <ul class="menu__list">
+                                    <li class="menu__item">
+                                        <a
+                                            href="#"
+                                            class="menu__link menu__link--active"
+                                        >
+                                            Home
+                                        </a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="#!" class="menu__link">
+                                            Products
+                                        </a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="#!" class="menu__link">
+                                            Features
+                                        </a>
+                                    </li>
+                                    <li class="menu__item">
+                                        <a href="#!" class="menu__link">
+                                            Blog
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+
+                            <div class="header__line"></div>
+
+                            <!-- Call to Action on Mobile -->
+                            <div class="header__cta--mobile">
+                                <a
+                                    href="#!"
+                                    class="links links--hover header__cta-link"
+                                    data-replace="Log in"
+                                >
+                                    Log in
+                                </a>
+                                <button
+                                    class="btn btn--bg-color-2 header__cta-btn"
+                                >
+                                    Sign up
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Drawer Overlay -->
+                        <label class="drawer-overlay" for="drawer-checkbox">
+                        </label>
+                    </div>
+
+                    <!-- Logo -->
+                    <a class="logo logo--mobile" href="">
+                        <img
+                            src="./project/svg/logo-celobank.svg"
+                            alt="Logo CeloBank"
+                            class="logo__icon"
+                        />
+                        <div class="logo__name" data-replace="CeloBank">
+                            CeloBank
+                        </div>
+                    </a>
+
+                    <!-- Menu -->
+                    <nav class="menu menu--pc">
+                        <ul class="menu__list">
+                            <li class="menu__item">
+                                <a
+                                    href="#"
+                                    class="menu__link menu__link--active"
+                                >
+                                    Home
+                                </a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="#!" class="menu__link"> Products </a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="#!" class="menu__link"> Features </a>
+                            </li>
+                            <li class="menu__item">
+                                <a href="#!" class="menu__link"> Blog </a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <!-- Call To Action -->
+                    <div class="header__cta">
+                        <a
+                            href="#!"
+                            class="links links--hover header__cta-link"
+                            data-replace="Log in"
+                        >
+                            Log in
+                        </a>
+                        <button class="btn btn--bg-color-2 header__cta-btn">
+                            Sign up
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ++++++++++++++++++ -->
+
+        <!-- +++++ MAIN +++++ -->
+        <main class="main">
+            <div class="container g-3 g-xl-0">
+                <!-- ===== HERO ===== -->
+                <section class="hero">
+                    <div class="row row-cols-1 gy-3 row-cols-xl-2 gx-xl-3">
+                        <div class="col">
+                            <!-- ----- Hero Content ----- -->
+                            <section
+                                class="hero__content"
+                                data-aos="fade-right"
+                                data-aos-duration="1500"
+                            >
+                                <!-- Hero Title -->
+                                <div class="sect-title hero__title">
+                                    Digital Smart Wallet
+                                </div>
+
+                                <!-- Hero Heading -->
+                                <h1 class="hero__heading">
+                                    Digital
+                                    <strong class="hero__heading--color">
+                                        Payment
+                                    </strong>
+                                    For Everyone.
+                                </h1>
+
+                                <!-- Hero Desc -->
+                                <p class="sect-desc hero__desc">
+                                    We bring together everything that&apos;s
+                                    required to build websites and apps that
+                                    accept payments and send payouts globally.
+                                    We are the best platform.
+                                </p>
+
+                                <!-- Hero Form -->
+                                <form action="" class="hero-form">
+                                    <div class="hero-form__wrap">
+                                        <input
+                                            id=""
+                                            class="hero-form__input"
+                                            type="email"
+                                            name=""
+                                            placeholder="Your email address"
+                                            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                        />
+                                        <button
+                                            class="btn btn--bg-color-1 hero-form__btn"
+                                            type="submit"
+                                        >
+                                            Get Started
+                                        </button>
+                                    </div>
+                                </form>
+
+                                <!-- Hero Note -->
+                                <div class="hero__note">
+                                    *We&apos;ll respect the inbox and never
+                                    share your email.
+                                </div>
+                            </section>
+                            <!-- ----- ------------ ----- -->
+                        </div>
+                        <div class="col">
+                            <!-- ----- Hero Media ----- -->
+                            <div
+                                class="hero-media"
+                                data-aos="fade-left"
+                                data-aos-duration="2000"
+                            >
+                                <!-- Hero Image -->
+                                <img
+                                    src="./project/img/hero-img.png"
+                                    alt="CeloBank Mobile Screen"
+                                    class="hero-media__img"
+                                />
+
+                                <!-- Hero Benefits -->
+                                <div class="hero-benefit-01">
+                                    <img
+                                        src="./project/svg/deposite-icon.svg"
+                                        alt="Deposits Icon "
+                                        class="hero-benefit-01__icon"
+                                    />
+                                    <span class="hero-benefit-01__name">
+                                        Deposite
+                                    </span>
+                                    <span class="hero-benefit-01__money">
+                                        $32000
+                                    </span>
+                                </div>
+                                <div class="hero-benefit-02">
+                                    <div class="hero-benefit-02__percent">
+                                        0%
+                                    </div>
+                                    <div class="hero-benefit-02__name">
+                                        Interest
+                                    </div>
+                                </div>
+                                <div class="hero-benefit-03">
+                                    <img
+                                        src="./project/svg/secured-funs-icon.svg"
+                                        alt="Secured Funds Icon"
+                                        class="hero-benefit-03__icon"
+                                    />
+                                    <div class="hero-benefit-03__content">
+                                        <div class="hero-benefit-03__money">
+                                            $1.310
+                                        </div>
+                                        <div class="hero-benefit-03__name">
+                                            SECURED FUNDS
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- ----- ---------- ----- -->
+                        </div>
+                    </div>
+                </section>
+                <!-- ===== ==== ===== -->
+            </div>
+        </main>
+        <!-- ++++++++++++++++ -->
+        <!-- ++++++ SCRIPTS +++++ -->
+        <!-- Animate On Scroll -->
+        <script src="./project/js/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+        <!-- ++++++++++++++++++++ -->
+    </body>
+</html>

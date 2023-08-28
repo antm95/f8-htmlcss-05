@@ -1,0 +1,59 @@
+@use "../abstracts";
+
+// Links
+.links {
+    // Positioning
+    position: relative;
+
+    // Box Model
+    overflow: hidden;
+
+    // Color
+    color: transparent;
+
+    // Classes
+    // Classes
+    &::before,
+    &::after {
+        content: attr(data-replace);
+
+        // Positioning
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        // Box Model
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+
+        // Transform
+        transform-origin: 100% 50%;
+        transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+    }
+
+    &::before {
+        // Color
+        color: abstracts.$black-color;
+
+        // Transform
+        transform: translate3d(0, 0, 0);
+    }
+
+    &::after {
+        // Color
+        color: abstracts.$primary-color-1;
+
+        // Transform
+        transform: translate3d(200%, 0, 0);
+    }
+
+    &:hover::before {
+        // Transform
+        transform: translate3d(-200%, 0, 0);
+    }
+    &:hover::after {
+        // Transform
+        transform: translate3d(0, 0, 0);
+    }
+}

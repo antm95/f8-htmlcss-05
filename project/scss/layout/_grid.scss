@@ -1,0 +1,193 @@
+// ***** GRID SYSTEM 12 COLUMNS - F8 - SCSS *****
+@use "sass:math";
+
+// +++++ Variables +++++
+$grid-columns: 12 !default;
+$grid-gutter-width: 30px !default;
+$grid-row-columns: 6;
+
+// Breakpoints
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+);
+
+// Container
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px,
+) !default;
+
+// Gutters
+$gutters: (
+    0: 0,
+    1: 0.25,
+    2: 0.5,
+    3: 1,
+    4: 1.5,
+    5: 3,
+);
+// +++++++++++++++++++++
+
+// +++++ Mixins +++++
+@mixin make-media-query($dimension, $bypass: false) {
+    @if $bypass {
+        @content;
+    } @else {
+        @media (min-width: $dimension) {
+            @content;
+        }
+    }
+}
+
+@mixin make-row-columns($infix) {
+    @for $i from 1 through $grid-row-columns {
+        // Classes
+        .row-cols#{$infix}-#{$i} > * {
+            // Flexbox Model
+            flex: 0 0 auto;
+
+            // Box Model
+            width: math.div(100%, $i);
+        }
+    }
+}
+
+@mixin make-columns($infix) {
+    @for $i from 1 through $grid-columns {
+        // Classes
+        .col#{$infix}-#{$i} {
+            // Flexbox Model
+            flex: 0 0 auto;
+
+            // Box Model
+            width: math.div(100%, $grid-columns) * $i;
+        }
+    }
+}
+
+@mixin make-offsets($infix) {
+    @for $i from 0 to $grid-columns {
+        // Classes
+        .offset#{$infix}-#{$i} {
+            // Box Model
+            margin-left: if($i > 0, math.div(100%, $grid-columns) * $i, 0);
+        }
+    }
+}
+
+@mixin make-gutters($infix) {
+    @each $i, $ratio in $gutters {
+        // Classes
+        .g#{$infix}-#{$i},
+        .gx#{$infix}-#{$i} {
+            // Variables
+            @if ($i > 0) {
+                --grid-gutter-x: #{$grid-gutter-width * $ratio};
+            } @else {
+                --grid-gutter-x: 0;
+            }
+        }
+
+        .g#{$infix}-#{$i},
+        .gy#{$infix}-#{$i} {
+            // Variables
+            @if ($i > 0) {
+                --grid-gutter-y: #{$grid-gutter-width * $ratio};
+            } @else {
+                --grid-gutter-y: 0;
+            }
+        }
+    }
+}
+// ++++++++++++++++++
+
+// ===== CONTAINER =====
+.container-fluid {
+    // Variables
+    --grid-gutter-x: #{$grid-gutter-width};
+    --grid-gutter-y: 0;
+
+    // Box Model
+    display: block;
+    width: 100%;
+    padding-inline: calc(var(--grid-gutter-x) * 0.5);
+}
+
+.container {
+    @extend .container-fluid;
+
+    // Box Model
+    margin-inline: auto;
+}
+// ===== ========= =====
+
+// ===== ROWS =====
+.row {
+    // Flexbox Model
+    display: flex;
+    flex-wrap: wrap;
+
+    // Box Model
+    margin-inline: calc(var(--grid-gutter-x) * 0.5 * -1);
+    margin-top: calc(var(--grid-gutter-y) * -1);
+
+    // Classes
+    > * {
+        // Box Model
+        padding-inline: calc(var(--grid-gutter-x) * 0.5);
+        margin-top: var(--grid-gutter-y);
+    }
+}
+// ===== ==== =====
+
+// ===== COLUMNS =====
+.col {
+    // Flexbox Model
+    flex: 1 0;
+}
+// ===== ======= =====
+
+// ===== MEDIA QUERY =====
+@each $breakpoint, $dimension in $grid-breakpoints {
+    // Variables
+    $max-width: map-get($container-max-widths, $breakpoint);
+    $is-xs: $breakpoint == xs;
+    $infix: if($is-xs, "", "-#{$breakpoint}");
+
+    // Media Query
+    @include make-media-query($dimension, $is-xs) {
+        // Classes
+        // ----- CONTAINER -----
+        .container {
+            // Box Model
+            max-width: $max-width;
+        }
+        // ----- -------- ------
+
+        // ----- OFFSETS -----
+        @include make-offsets($infix);
+        // ----- ------- -----
+
+        // ----- ROWS -----
+        @include make-row-columns($infix);
+        // ----- ---- -----
+
+        // ----- COLUMNS -----
+        @include make-columns($infix);
+        // ----- ------- -----
+
+        // ----- GUTTERS -----
+        @include make-gutters($infix);
+        // ----- ------- -----
+    }
+}
+// ===== =========== =====
+// **********************************************

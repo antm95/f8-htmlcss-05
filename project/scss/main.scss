@@ -1,0 +1,304 @@
+//
+@use "./abstracts";
+
+// Base
+@use "./base";
+
+// Components
+@use "./components";
+
+// Layout
+@use "./layout" with (
+    $container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1170px,
+        xxl: 1170px,
+    )
+);
+
+// Vendors
+@use "./vendors";
+
+// +++++ MAIN +++++
+// ===== HERO =====
+.hero {
+    // Box Model
+    margin-top: 56px;
+
+    // Classes
+    &__content {
+        // Flexbox Model
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        // Box Model
+        height: 100%;
+    }
+
+    &__heading {
+        // Box Model
+        width: 500px;
+        max-width: 100%;
+        margin-top: 12px;
+
+        // Text
+        font: {
+            weight: abstracts.$font-weight-bold;
+            size: clamp(4rem, 5vw + 1.25rem, 6rem);
+        }
+        line-height: 1.17;
+
+        // Classes
+        &--color {
+            // Color
+            color: abstracts.$primary-color-1;
+        }
+    }
+
+    &__desc {
+        // Box Model
+        width: 540px;
+    }
+
+    &-form {
+        // Box Model
+        margin-top: 40px;
+
+        // Classes
+        &__wrap {
+            // Mixins
+            @include abstracts.flex-align-center;
+
+            // Flexbox Model
+            justify-content: space-between;
+
+            // Box Model
+            width: 540px;
+            max-width: 100%;
+            height: 74px;
+            padding: 8px;
+            border-radius: 8px;
+            border: 2px solid transparent;
+
+            // Color
+            box-shadow: 0px 16px 42px 0px rgba(0, 0, 0, 0.07);
+
+            // Animation
+            transition: 0.5s;
+
+            // Classes
+            &:has(.hero-form__input:focus) {
+                // Color
+                border-color: abstracts.$primary-color-1;
+            }
+        }
+
+        &__input {
+            // Box Model
+            width: 100%;
+            height: 100%;
+            padding: 0 15px;
+            border-radius: inherit;
+            border: none;
+            outline: none;
+
+            // Color
+            color: abstracts.$primary-color-1;
+            background-color: transparent;
+
+            // Text
+            font-weight: abstracts.$font-weight-semibold;
+
+            // Classes
+            &::placeholder {
+                // Color
+                color: abstracts.$primary-color-3;
+
+                // Text
+                font-weight: initial;
+            }
+        }
+    }
+
+    &__note {
+        // Box model
+        margin-top: 20px;
+
+        // Color
+        color: abstracts.$primary-color-3;
+
+        // Text
+        font: {
+            weight: abstracts.$font-weight-semibold;
+            size: 1.4rem;
+        }
+        line-height: 1.7;
+    }
+
+    &-media {
+        // Positioning
+        position: relative;
+
+        // Box Model
+        height: 562px;
+        padding-left: 100px;
+
+        // Mixins
+        @include abstracts.mobileInterface {
+            // Mixins
+            @include abstracts.flex-justify-center;
+
+            // Box Model
+            padding: 0;
+        }
+
+        // Classes
+        &__img {
+            // Box Model
+            height: 100%;
+        }
+    }
+
+    &-benefit {
+        // Classes
+        &-01,
+        &-02,
+        &-03 {
+            // Positioning
+            position: absolute;
+        }
+
+        &-01 {
+            // Mixins
+            @include abstracts.flex-align-center;
+
+            // Positioning
+            top: 112px;
+            left: 0;
+
+            // Box Model
+            width: 174px;
+            height: 46px;
+            padding: 10px;
+            border-radius: 6px;
+
+            // Color
+            background-color: abstracts.$white-color;
+            box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.07);
+
+            // Classes
+            &__name {
+                // Box Model
+                margin-left: 8px;
+
+                // Color
+                color: abstracts.$primary-color-2;
+
+                // Text
+                font: {
+                    weight: abstracts.$font-weight-semibold;
+                    size: 1.4rem;
+                }
+            }
+
+            &__money {
+                // Box Model
+                margin-left: auto;
+
+                // Color
+                color: #4ab5e3;
+
+                // Text
+                font-size: 1.4rem;
+            }
+        }
+
+        &-02 {
+            // Mixins
+            @include abstracts.flex-center;
+
+            // Positioning
+            top: 126px;
+            left: 440px;
+
+            // Flexbox Model
+            flex-direction: column;
+
+            // Box Model
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+
+            // Color
+            color: abstracts.$white-color;
+            background-color: #da6464;
+
+            // Classes
+            &__percent {
+                // Text
+                font: {
+                    weight: abstracts.$font-weight-semibold;
+                    size: 4.4rem;
+                }
+            }
+
+            // Mixins
+            @include abstracts.mobileInterface {
+                // Positioning
+                left: initial;
+                right: 0;
+            }
+        }
+
+        &-03 {
+            // Positioning
+            bottom: 60px;
+            left: 346px;
+
+            // Flexbox Model
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 10px;
+
+            // Box Model
+            width: 124px;
+            height: 68px;
+            padding: 14px;
+            border-radius: 10px;
+
+            // Color
+            color: abstracts.$white-color;
+            background-color: #439f90;
+
+            // Classes
+            &__money {
+                // Text
+                font: {
+                    weight: abstracts.$font-weight-semibold;
+                    size: 1.4rem;
+                }
+            }
+
+            &__name {
+                // Box Model
+                margin-top: 5px;
+
+                // Text
+                font-size: 0.8rem;
+            }
+
+            // Mixins
+            @include abstracts.mobileInterface {
+                // Positioning
+                left: initial;
+                right: 0;
+            }
+        }
+    }
+}
+// ===== ==== =====
+// ++++++++++++++++

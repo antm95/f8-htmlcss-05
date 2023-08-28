@@ -1,0 +1,50 @@
+// +++++ MIXINS +++++
+@mixin width-container($wContainer: 1170px) {
+    // Box Model
+    width: $wContainer;
+}
+
+@mixin flex-align-center {
+    // Flexbox Model
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-justify-center {
+    // Flexbox Model
+    display: flex;
+    justify-content: center;
+}
+
+@mixin flex-center {
+    // Flexbox Model
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin inline-flex-center {
+    // Flexbox Model
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin resizeBtn($wBtn: 150px, $hBtn: 58px, $radiusBtn: 8px) {
+    // Box Model
+    min-width: $wBtn;
+    height: $hBtn;
+    border-radius: $radiusBtn;
+}
+
+@mixin mobileInterface {
+    @media (max-width: 767.98px) {
+        @content;
+    }
+}
+
+@mixin tabletInterface {
+    @media (min-width: 768px) and (max-width: 991.98px) {
+        @content;
+    }
+}

@@ -1,0 +1,168 @@
+@use "../abstracts";
+
+// ***** TAG's SET *****
+*,
+*::before,
+*::after {
+    // Box Model
+    box-sizing: border-box;
+}
+html {
+    // Text
+    font-size: 62.5%;
+
+    // Animator
+    scroll-behavior: smooth;
+}
+body {
+    // Text
+    font: 1.6rem abstracts.$primary-font-family;
+
+    // Other
+    user-select: none;
+}
+a {
+    // Text
+    text-decoration: none;
+}
+input,
+textarea,
+select,
+button {
+    /* Text */
+    font: inherit;
+}
+// *********************
+
+// ***** COMMON CLASSES *****
+// Logo CeloBank
+.logo {
+    // Flexbox Model
+    display: inline-flex;
+    align-items: center;
+    column-gap: 6px;
+
+    // Box Model
+    padding: 10px 0;
+
+    // Color
+    color: transparent;
+
+    // Text
+    font-weight: abstracts.$font-weight-semibold;
+
+    // Classes
+    &:hover .logo__name::before {
+        // Transform
+        transform: translate3d(-200%, 0, 0);
+    }
+    &:hover .logo__name::after {
+        // Transform
+        transform: translate3d(0, 0, 0);
+    }
+
+    // Logo_Name
+    &__name {
+        // Positioning
+        position: relative;
+
+        // Box Model
+        display: inline-block;
+        overflow: hidden;
+
+        // Classes
+        &::before,
+        &::after {
+            content: attr(data-replace);
+
+            // Positioning
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            // Box Model
+            display: inline-block;
+            width: 100%;
+            height: 100%;
+
+            // Transform
+            transform-origin: 100% 50%;
+            transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+
+        &::before {
+            // Color
+            color: abstracts.$black-color;
+
+            // Transform
+            transform: translate3d(0, 0, 0);
+        }
+
+        &::after {
+            // Color
+            color: abstracts.$primary-color-1;
+
+            // Transform
+            transform: translate3d(200%, 0, 0);
+        }
+    }
+}
+
+// Display Hidden
+.hidden {
+    // Box Model
+    display: none;
+}
+
+// Section Title/Heading/Desc
+.sect {
+    // Classes
+    &-title {
+        // Positioning
+        position: relative;
+
+        // Box Model
+        margin-left: 30px;
+
+        // Color
+        color: abstracts.$primary-color-3;
+
+        // Text
+        line-height: 1.75;
+
+        // Classes
+        &::before {
+            // Positioning
+            position: absolute;
+            top: 50%;
+            left: -30px;
+
+            // Display & Box Model
+            content: "";
+            display: inline-block;
+            width: 18px;
+            height: 2px;
+
+            // Color
+            background-color: abstracts.$primary-color-3;
+
+            // Transform
+            transform: translateY(-50%);
+        }
+    }
+
+    &-desc {
+        // Box Model
+        width: 470px;
+        max-width: 100%;
+        margin-top: 20px;
+
+        // Color
+        color: abstracts.$primary-color-3;
+
+        // Text
+        font-size: clamp(1.6rem, 1vw + 1rem, 1.8rem);
+        line-height: 1.67;
+    }
+}
+// **************************
